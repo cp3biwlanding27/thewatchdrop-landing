@@ -20,14 +20,16 @@
             line-height: 1.6;
             color: #333;
             background-color: #f9f9f7;
+            margin: 0;
+            padding: 0;
         }
         
         /* Layout and sections */
         .container {
             width: 100%;
-            max-width: 1140px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 30px;
         }
         
         /* Navigation */
@@ -107,10 +109,11 @@
         .hero {
             background-color: #172133;
             color: #fff;
-            padding: 140px 0 80px;
+            padding-top: 100px;
+            padding-bottom: 100px;
             text-align: center;
             position: relative;
-            margin-top: 60px;
+            margin-top: 0;
         }
         
         .hero::after {
@@ -128,7 +131,7 @@
             font-size: 3.5rem;
             font-weight: 700;
             max-width: 720px;
-            margin: 0 auto 20px;
+            margin: 0 auto 35px;  /* Increased bottom margin from 20px to 35px */
             line-height: 1.2;
             letter-spacing: -0.5px;
         }
@@ -152,50 +155,101 @@
         }
         
         /* Email form */
-        .email-form {
+        .email-form-container {
             display: flex;
-            max-width: 450px;
+            justify-content: center;
             margin: 0 auto;
-            border-radius: 2px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 450px;
         }
         
-        .email-input {
-            flex-grow: 1;
-            padding: 16px 20px;
-            border: none;
-            font-size: 1rem;
-            background-color: rgba(255, 255, 255, 0.05);
-            color: #fff;
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .email-input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-        
-        .email-button {
-            padding: 16px 26px;
+        .beehiiv-signup-button {
+            display: inline-block;
+            padding: 16px 40px;
             background-color: #f9f9f7;
             color: #172133;
-            border: none;
-            cursor: pointer;
+            text-decoration: none;
             font-weight: 500;
-            transition: all 0.2s ease;
             font-family: 'Inter', sans-serif;
             letter-spacing: 0.5px;
-            font-size: 0.95rem;
+            font-size: 1.1rem;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            border: none;
         }
         
-        .email-button:hover {
+        .beehiiv-signup-button:hover {
             background-color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         
-        /* Features section */
-        .features {
-            background-color: #f9f9f7;
-            padding: 80px 0;
+        /* Journal section */
+        .journal-preview {
+            background-color: #fff;
+            padding: 100px 0; /* Increased padding */
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .journal-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .journal-preview h2 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.5rem;
+            color: #172133;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        .journal-description {
+            text-align: center;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #555;
+        }
+        
+        .journal-label {
+            text-align: center;
+            display: inline-block;
+            margin: 0 auto 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background-color: rgba(23, 33, 51, 0.08);
+            color: #172133;
+            padding: 6px 12px;
+            border-radius: 4px;
+            display: table;
+        }
+        
+        .journal-articles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .journal-article {
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding-top: 20px;
+        }
+        
+        .journal-article h3 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            color: #172133;
+        }
+        
+        .article-preview {
+            color: #666;
+            font-size: 0.95rem;
+            display: block;
         }
         
         .features-grid {
@@ -233,6 +287,64 @@
             font-weight: 300;
         }
         
+        /* About section */
+        .about {
+            background-color: #fff;
+            padding: 100px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about h2 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.5rem;
+            color: #172133;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        
+        .about p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #555;
+        }
+        
+        .about-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            flex-basis: 30%;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .stat-number {
+            display: block;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #172133;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            display: block;
+            font-size: 0.9rem;
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
         /* Footer */
         .footer {
             background-color: #f9f9f7;
@@ -264,18 +376,20 @@
             
             .hero {
                 padding: 100px 0 60px;
-                margin-top: 52px;
+                margin-top: 0;
             }
             
             .hero h1 {
                 font-size: 2.4rem;
                 padding: 0 15px;
+                margin-bottom: 25px; /* Maintain proportional spacing on mobile */
             }
             
             .hero p {
                 font-size: 1.1rem;
-                padding: 0 15px;
+                padding: 0 20px;
                 margin-bottom: 40px;
+                max-width: 100%;
             }
             
             .cta-text {
@@ -289,25 +403,52 @@
             .feature {
                 padding: 30px 15px;
             }
+            
+            .journal-articles {
+                grid-template-columns: 1fr;
+            }
+            
+            .email-form-container {
+                max-width: 90%;
+                margin: 0 auto;
+            }
         }
         
         @media (max-width: 480px) {
-            .email-form {
+            .email-form-container iframe {
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .about-stats {
                 flex-direction: column;
-                border-radius: 0;
-                max-width: 90%;
             }
             
-            .email-input {
-                width: 100%;
-                text-align: center;
-                padding: 16px;
+            .stat {
+                flex-basis: 100%;
+                margin-bottom: 30px;
             }
             
-            .email-button {
-                width: 100%;
-                padding: 16px;
+            .hero h1 {
+                font-size: 2rem;
+                line-height: 1.3;
             }
+            
+            .hero p {
+                font-size: 1rem;
+                padding: 0 15px;
+            }
+            
+            .cta-text {
+                font-size: 1.6rem;
+                margin-bottom: 25px;
+            }
+        }
+        
+        /* Features section */
+        .features {
+            background-color: #f9f9f7;
+            padding: 100px 0; /* Increased padding */
         }
     </style>
 </head>
@@ -321,7 +462,7 @@
                 <a href="#features" class="nav-link">Features</a>
                 <a href="#journal" class="nav-link">Journal</a>
             </nav>
-            <button class="nav-button">Early Access</button>
+            <a href="#signup" class="nav-button">Early Access</a>
             <button class="mobile-menu-toggle">☰</button>
         </div>
     </header>
@@ -332,12 +473,15 @@
             <h1>A New Kind of Watch Platform Is Coming.</h1>
             <p>Curated drops, collector notes, and a smart discovery tool – all designed for watch lovers.</p>
             
-            <h2 class="cta-text">Join The Watch Drop</h2>
+            <h2 class="cta-text" id="signup">Join The Watch Drop</h2>
             
-            <form class="email-form">
-                <input type="email" class="email-input" placeholder="Enter your email" required>
-                <button type="submit" class="email-button">Notify Me</button>
-            </form>
+            <!-- Beehiiv Slim Embedded Form -->
+            <div class="email-form-container">
+                <iframe src="https://embeds.beehiiv.com/8d08146d-e132-428d-90da-711e5e9a0e78?slim=true" data-test-id="beehiiv-embed" height="52" frameborder="0" scrolling="no" style="margin: 0; border-radius: 4px !important; background-color: #f9f9f7; width: 100%; max-width: 450px;"></iframe>
+                <div id="form-success" style="display: none; margin-top: 20px; text-align: center; color: #fff; padding: 10px; background-color: rgba(255, 255, 255, 0.1); border-radius: 4px;">
+                    <p>Thank you! You've been added to the waitlist.</p>
+                </div>
+            </div>
         </div>
     </section>
     
@@ -375,11 +519,100 @@
         </div>
     </section>
     
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <h2>About The Watch Drop</h2>
+                <p>The Watch Drop was created for collectors, by collectors with a simple mission: to create a more transparent, curated, and community-driven watch discovery platform.</p>
+                <p>Finding the perfect timepiece today often means sifting through overwhelming options, biased reviews, and impersonal shopping experiences. The Watch Drop aims to change that, combining expert curation with personalized recommendations and authentic insights from real enthusiasts.</p>
+                <p>Backed by a network of collectors and watch lovers with decades of combined experience across vintage, modern, and microbrand scenes, we're building something different. Expect curated drops, detailed collector notes, and a smart discovery tool that enhances your preferences, all designed to help you find the watch that truly fits.</p>
+                <div class="about-stats">
+                    <div class="stat">
+                        <span class="stat-number">300+</span>
+                        <span class="stat-label">Watches To Be Featured</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Brand Partnerships In Progress</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">1000</span>
+                        <span class="stat-label">Waitlist Members Goal</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journal Preview Section -->
+    <section class="journal-preview" id="journal">
+        <div class="container">
+            <div class="journal-content">
+                <h2>Journal</h2>
+                <p class="journal-description">Our editorial hub for watch enthusiasts — featuring educational guides, expert reviews, and collector insights.</p>
+                <div class="journal-label">Launching This Summer</div>
+                <div class="journal-articles">
+                    <div class="journal-article">
+                        <h3>Your First Seiko: 3 Timeless Picks</h3>
+                        <span class="article-preview">A detailed guide for new collectors entering the world of fine watchmaking.</span>
+                    </div>
+                    <div class="journal-article">
+                        <h3>Why Microbrands Matter in 2025</h3>
+                        <span class="article-preview">Exploring the innovation and value propositions reshaping horology.</span>
+                    </div>
+                    <div class="journal-article">
+                        <h3>How to Read a Watch Listing Like a Collector</h3>
+                        <span class="article-preview">Decode listings to spot hidden gems and recognize potential issues.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p>Coming Soon | Trusted. Curated. Transparent.</p>
         </div>
     </footer>
+    <!-- JavaScript for smooth scrolling and form handling -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth scrolling to all links
+            const links = document.querySelectorAll('a[href^="#"]');
+            
+            for (const link of links) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        // Smooth scroll to element
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80, // Offset for fixed header
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            }
+            
+            // Check URL for 'success' parameter to show thank you message
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('success')) {
+                document.getElementById('form-success').style.display = 'block';
+                
+                // Hide the success message after 5 seconds
+                setTimeout(function() {
+                    document.getElementById('form-success').style.display = 'none';
+                }, 5000);
+            }
+        });
+    </script>
+    
+    <!-- Beehiiv Attribution Tracking -->
+    <script type="text/javascript" async src="https://embeds.beehiiv.com/attribution.js"></script>
 </body>
 </html>
