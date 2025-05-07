@@ -1,4 +1,33 @@
-<!DOCTYPE html>
+@media (max-width: 480px) {
+            .email-form-container iframe {
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .about-stats {
+                flex-direction: column;
+            }
+            
+            .stat {
+                flex-basis: 100%;
+                margin-bottom: 30px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+                line-height: 1.3;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+                padding: 0 15px;
+            }
+            
+            .cta-text {
+                font-size: 1.6rem;
+                margin-bottom: 25px;
+            }
+        }<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -131,7 +160,7 @@
             font-size: 3.5rem;
             font-weight: 700;
             max-width: 720px;
-            margin: 0 auto 35px;  /* Increased bottom margin from 20px to 35px */
+            margin: 0 auto 60px;  /* Increased bottom margin from 35px to 60px */
             line-height: 1.2;
             letter-spacing: -0.5px;
         }
@@ -186,7 +215,8 @@
         /* Journal section */
         .journal-preview {
             background-color: #fff;
-            padding: 100px 0; /* Increased padding */
+            padding-top: 60px; /* Reduced top padding from 100px to 60px */
+            padding-bottom: 100px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
         
@@ -382,7 +412,7 @@
             .hero h1 {
                 font-size: 2.4rem;
                 padding: 0 15px;
-                margin-bottom: 25px; /* Maintain proportional spacing on mobile */
+                margin-bottom: 40px; /* Increased spacing on mobile too */
             }
             
             .hero p {
@@ -414,35 +444,66 @@
             }
         }
         
-        @media (max-width: 480px) {
-            .email-form-container iframe {
-                width: 100%;
-                max-width: 100%;
-            }
-            
-            .about-stats {
-                flex-direction: column;
-            }
-            
-            .stat {
-                flex-basis: 100%;
-                margin-bottom: 30px;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-                line-height: 1.3;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-                padding: 0 15px;
-            }
-            
-            .cta-text {
-                font-size: 1.6rem;
-                margin-bottom: 25px;
-            }
+        /* Thank you popup */
+        .thank-you-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            z-index: 2000;
+            padding: 30px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        .thank-you-popup.show {
+            display: block;
+            opacity: 1;
+        }
+        
+        .thank-you-content {
+            position: relative;
+        }
+        
+        .thank-you-icon {
+            background-color: #172133;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .thank-you-popup h3 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #172133;
+        }
+        
+        .thank-you-popup p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .thank-you-subtext {
+            font-size: 0.9rem !important;
+            color: #666 !important;
+            margin-top: 10px;
         }
         
         /* Features section */
@@ -478,9 +539,14 @@
             <!-- Beehiiv Slim Embedded Form -->
             <div class="email-form-container">
                 <iframe src="https://embeds.beehiiv.com/8d08146d-e132-428d-90da-711e5e9a0e78?slim=true" data-test-id="beehiiv-embed" height="52" frameborder="0" scrolling="no" style="margin: 0; border-radius: 4px !important; background-color: #f9f9f7; width: 100%; max-width: 450px;"></iframe>
-                <div id="form-success" style="display: none; margin-top: 20px; text-align: center; color: #fff; padding: 10px; background-color: rgba(255, 255, 255, 0.1); border-radius: 4px;">
-                    <p>Thank you! You've been added to the waitlist.</p>
-                </div>
+    <!-- Pop-up Thank You Message -->
+    <div id="thank-you-popup" class="thank-you-popup">
+        <div class="thank-you-content">
+            <div class="thank-you-icon">✓</div>
+            <h3>Thank You!</h3>
+            <p>You've been added to the waitlist.</p>
+        </div>
+    </div>
             </div>
         </div>
     </section>
@@ -599,15 +665,23 @@
                 });
             }
             
-            // Check URL for 'success' parameter to show thank you message
+            // Thank you popup handling
             const urlParams = new URLSearchParams(window.location.search);
+            const popup = document.getElementById('thank-you-popup');
+            
             if (urlParams.has('success')) {
-                document.getElementById('form-success').style.display = 'block';
+                // Show the popup
+                popup.classList.add('show');
                 
-                // Hide the success message after 5 seconds
+                // Hide popup after 5 seconds
                 setTimeout(function() {
-                    document.getElementById('form-success').style.display = 'none';
+                    popup.classList.remove('show');
                 }, 5000);
+                
+                // Hide popup on hover
+                popup.addEventListener('mouseenter', function() {
+                    popup.classList.remove('show');
+                });
             }
         });
     </script>
