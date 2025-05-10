@@ -702,9 +702,23 @@
             <p>Coming Soon | Trusted. Curated. Transparent.</p>
         </div>
     </footer>
+    <!-- Kit Form Embed -->
+    <script async data-uid="519e06b3ac" src="https://the-watch-drop.kit.com/519e06b3ac/index.js"></script>
+    
     <!-- JavaScript for smooth scrolling and URL cleanup -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Listen for Kit form submission
+            window.addEventListener('message', function(event) {
+                // Check if message is from Kit about successful submission
+                if (event.data && event.data.type === 'hsFormCallback') {
+                    if (event.data.eventType === 'onFormSubmitted') {
+                        // Redirect to thank you page
+                        window.location.href = '/thank-you.html';
+                    }
+                }
+            });
+            
             // Clean up email parameter from URL
             const urlParams = new URLSearchParams(window.location.search);
             
@@ -740,8 +754,5 @@
             }
         });
     </script>
-    
-    <!-- Beehiiv Attribution Tracking -->
-    <script type="text/javascript" async src="https://embeds.beehiiv.com/attribution.js"></script>
 </body>
 </html>
