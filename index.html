@@ -1,4 +1,64 @@
-@media (max-width: 480px) {
+/* Adjust iframe responsiveness */
+        .email-form-container iframe {
+            width: 100%;
+            max-width: 450px;
+        }
+        
+        /* Fix layout issues when resizing */
+        .features-grid,
+        .journal-articles,
+        .about-stats {
+            display: grid;
+            gap: 30px;
+        }
+        
+        .features-grid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .journal-articles {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }        /* Medium-sized screens (tablets) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .container {
+                padding: 0 40px;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+                max-width: 90%;
+                margin-bottom: 50px;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                max-width: 80%;
+                margin: 0 auto 50px;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 30px;
+            }
+            
+            .journal-content, 
+            .about-content {
+                max-width: 90%;
+            }
+            
+            .email-form-container {
+                max-width: 400px;
+            }
+            
+            .about-stats {
+                justify-content: center;
+                gap: 20px;
+            }
+            
+            .stat {
+                flex-basis: 28%;
+            }
+        }        @media (max-width: 480px) {
             .email-form-container iframe {
                 width: 100%;
                 max-width: 100%;
@@ -642,9 +702,23 @@
             <p>Coming Soon | Trusted. Curated. Transparent.</p>
         </div>
     </footer>
-    <!-- JavaScript for smooth scrolling and form handling -->
+    <!-- JavaScript for smooth scrolling and URL cleanup -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Clean up email parameter from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            if (urlParams.has('email')) {
+                // Remove 'email' parameter and redirect to thank you page
+                const cleanUrl = window.location.origin + window.location.pathname;
+                window.history.replaceState({}, document.title, cleanUrl);
+                
+                // Redirect to thank you page since we have an email parameter
+                setTimeout(function() {
+                    window.location.href = '/thank-you.html';
+                }, 500);
+            }
+            
             // Add smooth scrolling to all links
             const links = document.querySelectorAll('a[href^="#"]');
             
@@ -662,25 +736,6 @@
                             behavior: 'smooth'
                         });
                     }
-                });
-            }
-            
-            // Thank you popup handling
-            const urlParams = new URLSearchParams(window.location.search);
-            const popup = document.getElementById('thank-you-popup');
-            
-            if (urlParams.has('success')) {
-                // Show the popup
-                popup.classList.add('show');
-                
-                // Hide popup after 5 seconds
-                setTimeout(function() {
-                    popup.classList.remove('show');
-                }, 5000);
-                
-                // Hide popup on hover
-                popup.addEventListener('mouseenter', function() {
-                    popup.classList.remove('show');
                 });
             }
         });
