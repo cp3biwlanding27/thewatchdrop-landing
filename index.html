@@ -1,652 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE WATCH DROP - A New Kind of Watch Platform</title>
-    <style>
-        /* Font imports */
-        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
-        
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f7;
-            margin: 0;
-            padding: 0;
-        }
-        
-        /* Layout and sections */
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 30px;
-        }
-        
-        /* Navigation */
-        .nav-header {
-            background-color: #172133;
-            padding: 16px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 1.2rem;
-            color: #fff;
-            font-weight: 700;
-            text-decoration: none;
-            letter-spacing: 0.5px;
-        }
-        
-        .nav-menu {
-            display: flex;
-            gap: 30px;
-        }
-        
-        .nav-link {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 400;
-            transition: color 0.2s ease;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-        
-        .nav-link:hover {
-            color: #fff;
-        }
-        
-        .nav-button {
-            background-color: transparent;
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 8px 16px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-family: 'Inter', sans-serif;
-            letter-spacing: 0.5px;
-            border-radius: 2px;
-            text-decoration: none;
-        }
-        
-        .nav-button:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-        
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background-color: #172133;
-            color: #fff;
-            padding-top: 100px;
-            padding-bottom: 100px;
-            text-align: center;
-            position: relative;
-            margin-top: 0;
-        }
-        
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        .hero h1 {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            max-width: 720px;
-            margin: 0 auto 60px;
-            line-height: 1.2;
-            letter-spacing: -0.5px;
-        }
-        
-        .hero p {
-            font-family: 'Inter', sans-serif;
-            font-weight: 300;
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 60px;
-            opacity: 0.9;
-            letter-spacing: 0.2px;
-            line-height: 1.6;
-        }
-        
-        .cta-text {
-            font-size: 2.2rem;
-            font-family: 'Libre Baskerville', serif;
-            margin-bottom: 30px;
-            font-weight: 400;
-        }
-        
-        /* Email form */
-        .email-form-container {
-            display: flex;
-            justify-content: center;
-            margin: 0 auto;
-            max-width: 450px;
-        }
-        
-        /* Features section */
-        .features {
-            background-color: #f9f9f7;
-            padding: 100px 0;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-        
-        .feature {
-            padding: 30px;
-            position: relative;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-        }
-        
-        .feature-icon {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 24px;
-            stroke: #172133;
-        }
-        
-        .feature h3 {
-            font-family: 'Libre Baskerville', serif;
-            font-weight: 700;
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-            line-height: 1.3;
-            color: #172133;
-        }
-        
-        .feature p {
-            font-size: 1rem;
-            opacity: 0.8;
-            line-height: 1.7;
-            font-weight: 300;
-        }
-        
-        /* About section */
-        .about {
-            background-color: #fff;
-            padding: 100px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-        
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .about h2 {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 2.5rem;
-            color: #172133;
-            margin-bottom: 30px;
-            font-weight: 700;
-        }
-        
-        .about p {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: #555;
-        }
-        
-        .about-stats {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 60px;
-            flex-wrap: wrap;
-        }
-        
-        .stat {
-            flex-basis: 30%;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .stat-number {
-            display: block;
-            font-family: 'Libre Baskerville', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #172133;
-            margin-bottom: 5px;
-        }
-        
-        .stat-label {
-            display: block;
-            font-size: 0.9rem;
-            color: #777;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        /* Journal section */
-        .journal-preview {
-            background-color: #fff;
-            padding-top: 60px;
-            padding-bottom: 100px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-        
-        .journal-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .journal-preview h2 {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 2.5rem;
-            color: #172133;
-            margin-bottom: 20px;
-            font-weight: 700;
-            text-align: center;
-        }
-        
-        .journal-description {
-            text-align: center;
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 30px;
-            color: #555;
-        }
-        
-        .journal-label {
-            text-align: center;
-            display: inline-block;
-            margin: 0 auto 40px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            background-color: rgba(23, 33, 51, 0.08);
-            color: #172133;
-            padding: 6px 12px;
-            border-radius: 4px;
-            display: table;
-        }
-        
-        .journal-articles {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .journal-article {
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-            padding-top: 20px;
-        }
-        
-        .journal-article h3 {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            line-height: 1.4;
-            color: #172133;
-        }
-        
-        .article-preview {
-            color: #666;
-            font-size: 0.95rem;
-            display: block;
-        }
-        
-        /* Footer */
-        .footer {
-            background-color: #f9f9f7;
-            padding: 40px 0 80px;
-            text-align: center;
-            font-size: 1rem;
-            color: #666;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-        }
-        
-        .footer p {
-            font-weight: 400;
-            letter-spacing: 0.5px;
-        }
-        
-        /* Thank you popup */
-        .thank-you-popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            z-index: 2000;
-            padding: 30px;
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-        }
-        
-        .thank-you-popup.show {
-            display: block;
-            opacity: 1;
-        }
-        
-        .thank-you-content {
-            position: relative;
-        }
-        
-        .thank-you-icon {
-            background-color: #172133;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        
-        .thank-you-popup h3 {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            color: #172133;
-        }
-        
-        .thank-you-popup p {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        
-        .thank-you-subtext {
-            font-size: 0.9rem !important;
-            color: #666 !important;
-            margin-top: 10px;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-            
-            .mobile-menu-toggle {
-                display: block;
-            }
-            
-            .nav-button {
-                display: none;
-            }
-            
-            .hero {
-                padding: 100px 0 60px;
-                margin-top: 0;
-            }
-            
-            .hero h1 {
-                font-size: 2.4rem;
-                padding: 0 15px;
-                margin-bottom: 40px;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-                padding: 0 20px;
-                margin-bottom: 40px;
-                max-width: 100%;
-            }
-            
-            .cta-text {
-                font-size: 1.8rem;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .feature {
-                padding: 30px 15px;
-            }
-            
-            .journal-articles {
-                grid-template-columns: 1fr;
-            }
-            
-            .email-form-container {
-                max-width: 90%;
-                margin: 0 auto;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .about-stats {
-                flex-direction: column;
-            }
-            
-            .stat {
-                flex-basis: 100%;
-                margin-bottom: 30px;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-                line-height: 1.3;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-                padding: 0 15px;
-            }
-            
-            .cta-text {
-                font-size: 1.6rem;
-                margin-bottom: 25px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Navigation Header -->
-    <header class="nav-header">
-        <div class="container nav-container">
-            <a href="#" class="logo">THE WATCH DROP</a>
-            <nav class="nav-menu">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#features" class="nav-link">Features</a>
-                <a href="#journal" class="nav-link">Journal</a>
-            </nav>
-            <a href="#signup" class="nav-button">Early Access</a>
-            <button class="mobile-menu-toggle">☰</button>
-        </div>
-    </header>
-    
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>A New Kind of Watch Platform Is Coming.</h1>
-            <p>Curated drops, collector notes, and a smart discovery tool – all designed for watch lovers.</p>
-            
-            <h2 class="cta-text" id="signup">Join The Watch Drop</h2>
-            
-            <!-- Kit Form Container -->
-            <div class="email-form-container" id="kit-form-container">
-                <!-- Kit form will appear here when JavaScript loads -->
-            </div>
-        </div>
-    </section>
-    
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <div class="features-grid">
-                <div class="feature">
-                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <polyline points="12 6 12 12 16 14"></polyline>
-                    </svg>
-                    <h3>Curated Weekly Watch Drops</h3>
-                    <p>Hand picked watches across Seiko, microbrands, and collector's pieces.</p>
-                </div>
-                
-                <div class="feature">
-                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 20h9"></path>
-                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                    </svg>
-                    <h3>Watch Wizard – Smart Discovery Tool</h3>
-                    <p>A guided way to find the perfect piece – tailored to your taste, budget, and lifestyle.</p>
-                </div>
-                
-                <div class="feature">
-                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                    </svg>
-                    <h3>Collector Notes & Watch Guides</h3>
-                    <p>Go beyond specs with real-world insights for each watch.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <h2>About The Watch Drop</h2>
-                <p>The Watch Drop was created for collectors, by collectors with a simple mission: to create a more transparent, curated, and community-driven watch discovery platform.</p>
-                <p>Finding the perfect timepiece today often means sifting through overwhelming options, biased reviews, and impersonal shopping experiences. The Watch Drop aims to change that, combining expert curation with personalized recommendations and authentic insights from real enthusiasts.</p>
-                <p>Backed by a network of collectors and watch lovers with decades of combined experience across vintage, modern, and microbrand scenes, we're building something different. Expect curated drops, detailed collector notes, and a smart discovery tool that enhances your preferences, all designed to help you find the watch that truly fits.</p>
-                <div class="about-stats">
-                    <div class="stat">
-                        <span class="stat-number">300+</span>
-                        <span class="stat-label">Watches To Be Featured</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label">Brand Partnerships In Progress</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">1000</span>
-                        <span class="stat-label">Waitlist Members Goal</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>THE WATCH DROP – A New Kind of Watch Platform</title>
+  <style>
+    /* Font imports */
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
 
-    <!-- Journal Preview Section -->
-    <section class="journal-preview" id="journal">
-        <div class="container">
-            <div class="journal-content">
-                <h2>Journal</h2>
-                <p class="journal-description">Our editorial hub for watch enthusiasts — featuring educational guides, expert reviews, and collector insights.</p>
-                <div class="journal-label">Launching This Summer</div>
-                <div class="journal-articles">
-                    <div class="journal-article">
-                        <h3>Your First Seiko: 3 Timeless Picks</h3>
-                        <span class="article-preview">A detailed guide for new collectors entering the world of fine watchmaking.</span>
-                    </div>
-                    <div class="journal-article">
-                        <h3>Why Microbrands Matter in 2025</h3>
-                        <span class="article-preview">Exploring the innovation and value propositions reshaping horology.</span>
-                    </div>
-                    <div class="journal-article">
-                        <h3>How to Read a Watch Listing Like a Collector</h3>
-                        <span class="article-preview">Decode listings to spot hidden gems and recognize potential issues.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>Coming Soon | Trusted. Curated. Transparent.</p>
-        </div>
-    </footer>
-    
-    <!-- Pop-up Thank You Message -->
-    <div id="thank-you-popup" class="thank-you-popup">
-        <div class="thank-you-content">
-            <div class="thank-you-icon">✓</div>
-            <h3>Thank You!</h3>
-            <p>You've been added to the waitlist.</p>
-        </div>
+    /* Reset & base */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height:1.6;
+      color:#333;
+      background:#f9f9f7;
+    }
+    .container {
+      width:100%; max-width:1200px; margin:0 auto; padding:0 30px;
+    }
+
+    /* Nav */
+    .nav-header {
+      background:#172133; padding:16px 0;
+      position:fixed; top:0; left:0; width:100%; z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,0.1);
+    }
+    .nav-container { display:flex; justify-content:space-between; align-items:center; }
+    .logo {
+      font-family:'Libre Baskerville', serif;
+      color:#fff; font-size:1.2rem; font-weight:700;
+      text-decoration:none; letter-spacing:.5px;
+    }
+    .nav-menu { display:flex; gap:30px; }
+    .nav-link {
+      color:rgba(255,255,255,0.7);
+      text-decoration:none;
+      font-size:.9rem; text-transform:uppercase;
+      letter-spacing:.5px;
+      transition:color .2s;
+    }
+    .nav-link:hover { color:#fff; }
+    .nav-button {
+      background:transparent; color:#fff;
+      border:1px solid rgba(255,255,255,0.3);
+      padding:8px 16px; text-transform:uppercase;
+      font-size:.85rem; letter-spacing:.5px;
+      border-radius:2px; text-decoration:none;
+      transition:background .2s,border .2s;
+    }
+    .nav-button:hover {
+      background:rgba(255,255,255,0.1);
+      border-color:rgba(255,255,255,0.5);
+    }
+
+    /* Hero */
+    .hero {
+      background:#172133; color:#fff;
+      padding:120px 0 100px; text-align:center;
+    }
+    .hero h1 {
+      font-family:'Libre Baskerville', serif;
+      font-size:3.5rem; font-weight:700;
+      max-width:720px; margin:0 auto 40px;
+      line-height:1.2; letter-spacing:-.5px;
+    }
+    .hero p {
+      font-weight:300; font-size:1.2rem;
+      max-width:600px; margin:0 auto 40px;
+      opacity:.9; letter-spacing:.2px;
+    }
+
+    /* Email form container */
+    .email-form-container {
+      display:flex; justify-content:center;
+      margin-top:20px;
+    }
+
+    /* Features, About, Journal & Footer (unaltered) */
+    /* ... paste your existing CSS for .features, .about, .journal, .footer here ... */
+
+    /* Responsive tweaks */
+    @media(max-width:768px) {
+      .nav-menu { display:none; }
+      .mobile-menu-toggle { display:block; }
+      .nav-button { display:none; }
+      .hero h1 { font-size:2.4rem; margin-bottom:30px; }
+      .hero p { font-size:1.1rem; margin-bottom:30px; padding:0 20px; }
+    }
+    @media(max-width:480px) {
+      .hero h1 { font-size:2rem; line-height:1.3; }
+      .hero p { font-size:1rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <header class="nav-header">
+    <div class="container nav-container">
+      <a href="/" class="logo">THE WATCH DROP</a>
+      <nav class="nav-menu">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#journal" class="nav-link">Journal</a>
+      </nav>
+      <a href="#signup" class="nav-button">Early Access</a>
     </div>
-    
-    <!-- Kit Form Embed -->
-    <script async data-uid="519e06b3ac" src="https://the-watch-drop.kit.com/519e06b3ac/index.js"></script>
-    
-    <!-- JavaScript for smooth scrolling -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add smooth scrolling to all links
-            const links = document.querySelectorAll('a[href^="#"]');
-            
-            for (const link of links) {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        // Smooth scroll to element
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80, // Offset for fixed header
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            }
-        });
-    </script>
+  </header>
+
+  <!-- Hero & Email Form -->
+  <section class="hero">
+    <div class="container">
+      <h1>A New Kind of Watch Platform Is Coming.</h1>
+      <p>Curated drops, collector notes, and a smart discovery tool – all designed for watch lovers.</p>
+
+      <div class="email-form-container" id="signup">
+        <!-- ConvertKit (Kit) HTML Embed -->
+        <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+        <form
+          action="https://app.kit.com/forms/8038660/subscriptions"
+          class="seva-form formkit-form"
+          method="post"
+          data-sv-form="8038660"
+          data-uid="519e06b3ac"
+          data-format="inline"
+          data-version="5"
+          data-options='{"settings":{"after_subscribe":{"action":"redirect","redirect_url":"https://thewatchdropclub.com/thank-you.html"}}}'
+        >
+          <ul
+            class="formkit-alert formkit-alert-error"
+            data-element="errors"
+            data-group="alert"
+          ></ul>
+          <div
+            class="seva-fields formkit-fields"
+            data-element="fields"
+            data-stacked="false"
+          >
+            <div class="formkit-field">
+              <input
+                class="formkit-input"
+                name="email_address"
+                placeholder="Enter your email"
+                required
+                type="email"
+                style="padding:12px;border-radius:4px;border:1px solid #ddd;width:300px;"
+              >
+            </div>
+            <button
+              data-element="submit"
+              class="formkit-submit"
+              style="padding:12px 24px;background:#172133;color:#fff;border:none;border-radius:4px;font-weight:700;cursor:pointer;"
+            >
+              Subscribe
+            </button>
+          </div>
+          <div class="formkit-powered-by-convertkit-container">
+            <a
+              href="https://kit.com/features/forms?utm_campaign=poweredby&utm_content=form&utm_medium=referral&utm_source=dynamic"
+              class="formkit-powered-by-convertkit"
+              data-element="powered-by"
+              target="_blank"
+              rel="nofollow"
+            >
+              Built with Kit
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <!-- your .features-grid here -->
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <!-- your .about-content here -->
+    </div>
+  </section>
+
+  <!-- Journal Section -->
+  <section class="journal-preview" id="journal">
+    <div class="container">
+      <!-- your .journal-content here -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Coming Soon | Trusted. Curated. Transparent.</p>
+    </div>
+  </footer>
 </body>
 </html>
