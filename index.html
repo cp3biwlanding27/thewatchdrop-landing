@@ -1,4 +1,4 @@
-/<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -89,6 +89,7 @@
             font-family: 'Inter', sans-serif;
             letter-spacing: 0.5px;
             border-radius: 2px;
+            text-decoration: none;
         }
         
         .nav-button:hover {
@@ -162,74 +163,10 @@
             max-width: 450px;
         }
         
-        /* Journal section */
-        .journal-preview {
-            background-color: #fff;
-            padding-top: 60px;
-            padding-bottom: 100px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-        
-        .journal-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .journal-preview h2 {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 2.5rem;
-            color: #172133;
-            margin-bottom: 20px;
-            font-weight: 700;
-            text-align: center;
-        }
-        
-        .journal-description {
-            text-align: center;
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 30px;
-            color: #555;
-        }
-        
-        .journal-label {
-            text-align: center;
-            display: inline-block;
-            margin: 0 auto 40px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            background-color: rgba(23, 33, 51, 0.08);
-            color: #172133;
-            padding: 6px 12px;
-            border-radius: 4px;
-            display: table;
-        }
-        
-        .journal-articles {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .journal-article {
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-            padding-top: 20px;
-        }
-        
-        .journal-article h3 {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            line-height: 1.4;
-            color: #172133;
-        }
-        
-        .article-preview {
-            color: #666;
-            font-size: 0.95rem;
-            display: block;
+        /* Features section */
+        .features {
+            background-color: #f9f9f7;
+            padding: 100px 0;
         }
         
         .features-grid {
@@ -325,6 +262,76 @@
             letter-spacing: 1px;
         }
         
+        /* Journal section */
+        .journal-preview {
+            background-color: #fff;
+            padding-top: 60px;
+            padding-bottom: 100px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .journal-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .journal-preview h2 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.5rem;
+            color: #172133;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        .journal-description {
+            text-align: center;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #555;
+        }
+        
+        .journal-label {
+            text-align: center;
+            display: inline-block;
+            margin: 0 auto 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background-color: rgba(23, 33, 51, 0.08);
+            color: #172133;
+            padding: 6px 12px;
+            border-radius: 4px;
+            display: table;
+        }
+        
+        .journal-articles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .journal-article {
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding-top: 20px;
+        }
+        
+        .journal-article h3 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            color: #172133;
+        }
+        
+        .article-preview {
+            color: #666;
+            font-size: 0.95rem;
+            display: block;
+        }
+        
         /* Footer */
         .footer {
             background-color: #f9f9f7;
@@ -402,12 +409,6 @@
             margin-top: 10px;
         }
         
-        /* Features section */
-        .features {
-            background-color: #f9f9f7;
-            padding: 100px 0;
-        }
-        
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .nav-menu {
@@ -462,54 +463,7 @@
             }
         }
         
-        /* Medium-sized screens (tablets) */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .container {
-                padding: 0 40px;
-            }
-            
-            .hero h1 {
-                font-size: 3rem;
-                max-width: 90%;
-                margin-bottom: 50px;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-                max-width: 80%;
-                margin: 0 auto 50px;
-            }
-            
-            .features-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 30px;
-            }
-            
-            .journal-content, 
-            .about-content {
-                max-width: 90%;
-            }
-            
-            .email-form-container {
-                max-width: 400px;
-            }
-            
-            .about-stats {
-                justify-content: center;
-                gap: 20px;
-            }
-            
-            .stat {
-                flex-basis: 28%;
-            }
-        }
-        
         @media (max-width: 480px) {
-            .email-form-container iframe {
-                width: 100%;
-                max-width: 100%;
-            }
-            
             .about-stats {
                 flex-direction: column;
             }
@@ -559,7 +513,7 @@
             
             <h2 class="cta-text" id="signup">Join The Watch Drop</h2>
             
-            <!-- Kit Form Container (form will be injected here via JavaScript) -->
+            <!-- Kit Form Container -->
             <div class="email-form-container" id="kit-form-container">
                 <!-- Kit form will appear here when JavaScript loads -->
             </div>
@@ -670,34 +624,9 @@
     <!-- Kit Form Embed -->
     <script async data-uid="519e06b3ac" src="https://the-watch-drop.kit.com/519e06b3ac/index.js"></script>
     
-    <!-- JavaScript for smooth scrolling and URL cleanup -->
+    <!-- JavaScript for smooth scrolling -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Listen for Kit form submission
-            window.addEventListener('message', function(event) {
-                // Check if message is from Kit about successful submission
-                if (event.data && event.data.type === 'hsFormCallback') {
-                    if (event.data.eventType === 'onFormSubmitted') {
-                        // Redirect to thank you page
-                        window.location.href = '/thank-you.html';
-                    }
-                }
-            });
-            
-            // Clean up email parameter from URL
-            const urlParams = new URLSearchParams(window.location.search);
-            
-            if (urlParams.has('email')) {
-                // Remove 'email' parameter and redirect to thank you page
-                const cleanUrl = window.location.origin + window.location.pathname;
-                window.history.replaceState({}, document.title, cleanUrl);
-                
-                // Redirect to thank you page since we have an email parameter
-                setTimeout(function() {
-                    window.location.href = '/thank-you.html';
-                }, 500);
-            }
-            
             // Add smooth scrolling to all links
             const links = document.querySelectorAll('a[href^="#"]');
             
