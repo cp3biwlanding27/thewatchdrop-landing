@@ -1,93 +1,4 @@
-/* Adjust iframe responsiveness */
-        .email-form-container iframe {
-            width: 100%;
-            max-width: 450px;
-        }
-        
-        /* Fix layout issues when resizing */
-        .features-grid,
-        .journal-articles,
-        .about-stats {
-            display: grid;
-            gap: 30px;
-        }
-        
-        .features-grid {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        }
-        
-        .journal-articles {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        }        /* Medium-sized screens (tablets) */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .container {
-                padding: 0 40px;
-            }
-            
-            .hero h1 {
-                font-size: 3rem;
-                max-width: 90%;
-                margin-bottom: 50px;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-                max-width: 80%;
-                margin: 0 auto 50px;
-            }
-            
-            .features-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 30px;
-            }
-            
-            .journal-content, 
-            .about-content {
-                max-width: 90%;
-            }
-            
-            .email-form-container {
-                max-width: 400px;
-            }
-            
-            .about-stats {
-                justify-content: center;
-                gap: 20px;
-            }
-            
-            .stat {
-                flex-basis: 28%;
-            }
-        }        @media (max-width: 480px) {
-            .email-form-container iframe {
-                width: 100%;
-                max-width: 100%;
-            }
-            
-            .about-stats {
-                flex-direction: column;
-            }
-            
-            .stat {
-                flex-basis: 100%;
-                margin-bottom: 30px;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-                line-height: 1.3;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-                padding: 0 15px;
-            }
-            
-            .cta-text {
-                font-size: 1.6rem;
-                margin-bottom: 25px;
-            }
-        }<!DOCTYPE html>
+/<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -220,7 +131,7 @@
             font-size: 3.5rem;
             font-weight: 700;
             max-width: 720px;
-            margin: 0 auto 60px;  /* Increased bottom margin from 35px to 60px */
+            margin: 0 auto 60px;
             line-height: 1.2;
             letter-spacing: -0.5px;
         }
@@ -251,31 +162,10 @@
             max-width: 450px;
         }
         
-        .beehiiv-signup-button {
-            display: inline-block;
-            padding: 16px 40px;
-            background-color: #f9f9f7;
-            color: #172133;
-            text-decoration: none;
-            font-weight: 500;
-            font-family: 'Inter', sans-serif;
-            letter-spacing: 0.5px;
-            font-size: 1.1rem;
-            border-radius: 4px;
-            transition: all 0.2s ease;
-            border: none;
-        }
-        
-        .beehiiv-signup-button:hover {
-            background-color: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        
         /* Journal section */
         .journal-preview {
             background-color: #fff;
-            padding-top: 60px; /* Reduced top padding from 100px to 60px */
+            padding-top: 60px;
             padding-bottom: 100px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
@@ -450,60 +340,6 @@
             letter-spacing: 0.5px;
         }
         
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-            
-            .mobile-menu-toggle {
-                display: block;
-            }
-            
-            .nav-button {
-                display: none;
-            }
-            
-            .hero {
-                padding: 100px 0 60px;
-                margin-top: 0;
-            }
-            
-            .hero h1 {
-                font-size: 2.4rem;
-                padding: 0 15px;
-                margin-bottom: 40px; /* Increased spacing on mobile too */
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-                padding: 0 20px;
-                margin-bottom: 40px;
-                max-width: 100%;
-            }
-            
-            .cta-text {
-                font-size: 1.8rem;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .feature {
-                padding: 30px 15px;
-            }
-            
-            .journal-articles {
-                grid-template-columns: 1fr;
-            }
-            
-            .email-form-container {
-                max-width: 90%;
-                margin: 0 auto;
-            }
-        }
-        
         /* Thank you popup */
         .thank-you-popup {
             display: none;
@@ -569,7 +405,134 @@
         /* Features section */
         .features {
             background-color: #f9f9f7;
-            padding: 100px 0; /* Increased padding */
+            padding: 100px 0;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-button {
+                display: none;
+            }
+            
+            .hero {
+                padding: 100px 0 60px;
+                margin-top: 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.4rem;
+                padding: 0 15px;
+                margin-bottom: 40px;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                padding: 0 20px;
+                margin-bottom: 40px;
+                max-width: 100%;
+            }
+            
+            .cta-text {
+                font-size: 1.8rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature {
+                padding: 30px 15px;
+            }
+            
+            .journal-articles {
+                grid-template-columns: 1fr;
+            }
+            
+            .email-form-container {
+                max-width: 90%;
+                margin: 0 auto;
+            }
+        }
+        
+        /* Medium-sized screens (tablets) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .container {
+                padding: 0 40px;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+                max-width: 90%;
+                margin-bottom: 50px;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                max-width: 80%;
+                margin: 0 auto 50px;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 30px;
+            }
+            
+            .journal-content, 
+            .about-content {
+                max-width: 90%;
+            }
+            
+            .email-form-container {
+                max-width: 400px;
+            }
+            
+            .about-stats {
+                justify-content: center;
+                gap: 20px;
+            }
+            
+            .stat {
+                flex-basis: 28%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .email-form-container iframe {
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .about-stats {
+                flex-direction: column;
+            }
+            
+            .stat {
+                flex-basis: 100%;
+                margin-bottom: 30px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+                line-height: 1.3;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+                padding: 0 15px;
+            }
+            
+            .cta-text {
+                font-size: 1.6rem;
+                margin-bottom: 25px;
+            }
         }
     </style>
 </head>
@@ -596,17 +559,9 @@
             
             <h2 class="cta-text" id="signup">Join The Watch Drop</h2>
             
-            <!-- Beehiiv Slim Embedded Form -->
-            <div class="email-form-container">
-                <iframe src="https://embeds.beehiiv.com/8d08146d-e132-428d-90da-711e5e9a0e78?slim=true" data-test-id="beehiiv-embed" height="52" frameborder="0" scrolling="no" style="margin: 0; border-radius: 4px !important; background-color: #f9f9f7; width: 100%; max-width: 450px;"></iframe>
-    <!-- Pop-up Thank You Message -->
-    <div id="thank-you-popup" class="thank-you-popup">
-        <div class="thank-you-content">
-            <div class="thank-you-icon">✓</div>
-            <h3>Thank You!</h3>
-            <p>You've been added to the waitlist.</p>
-        </div>
-    </div>
+            <!-- Kit Form Container (form will be injected here via JavaScript) -->
+            <div class="email-form-container" id="kit-form-container">
+                <!-- Kit form will appear here when JavaScript loads -->
             </div>
         </div>
     </section>
@@ -702,6 +657,16 @@
             <p>Coming Soon | Trusted. Curated. Transparent.</p>
         </div>
     </footer>
+    
+    <!-- Pop-up Thank You Message -->
+    <div id="thank-you-popup" class="thank-you-popup">
+        <div class="thank-you-content">
+            <div class="thank-you-icon">✓</div>
+            <h3>Thank You!</h3>
+            <p>You've been added to the waitlist.</p>
+        </div>
+    </div>
+    
     <!-- Kit Form Embed -->
     <script async data-uid="519e06b3ac" src="https://the-watch-drop.kit.com/519e06b3ac/index.js"></script>
     
