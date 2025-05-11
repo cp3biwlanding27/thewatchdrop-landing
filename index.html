@@ -437,7 +437,7 @@
         </div>
     </header>
     
-    <!-- Hero Section -->
+ <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <h1>A New Kind of Watch Platform Is Coming.</h1>
@@ -446,33 +446,9 @@
             <h2 class="cta-text" id="signup">Join The Watch Drop</h2>
             
             <!-- ConvertKit Mailing List Form -->
-    <!-- Kit Form Embed -->
-    <script async data-uid="519e06b3ac" src="https://the-watch-drop.kit.com/519e06b3ac/index.js"></script>
-    
-    <!-- JavaScript for smooth scrolling -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add smooth scrolling to all links
-            const links = document.querySelectorAll('a[href^="#"]');
-            
-            for (const link of links) {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        // Smooth scroll to element
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80, // Offset for fixed header
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            }
-        });
-    </script>
+            <div class="email-form-container">
+                <script async data-uid="519e06b3ac" src="https://the-watch-drop.kit.com/519e06b3ac/index.js"></script>
+            </div>
         </div>
     </section>
     
@@ -560,7 +536,32 @@
             </div>
         </div>
     </section>
-    
+
+     <!-- Smooth Scrolling Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth scrolling to all links
+            const links = document.querySelectorAll('a[href^="#"]');
+            
+            for (const link of links) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        // Smooth scroll to element
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80, // Offset for fixed header
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+       
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
