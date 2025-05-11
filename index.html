@@ -346,74 +346,6 @@
             font-weight: 400;
             letter-spacing: 0.5px;
         }
-        
-        /* Thank you popup */
-        .thank-you-popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            z-index: 2000;
-            padding: 30px;
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-        }
-        
-        .thank-you-popup.show {
-            display: block;
-            opacity: 1;
-        }
-        
-        .thank-you-content {
-            position: relative;
-        }
-        
-        .thank-you-icon {
-            background-color: #172133;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        
-        .thank-you-popup h3 {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            color: #172133;
-        }
-        
-        .thank-you-popup p {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        
-        .thank-you-subtext {
-            font-size: 0.9rem !important;
-            color: #666 !important;
-            margin-top: 10px;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
             
             .mobile-menu-toggle {
                 display: block;
@@ -514,13 +446,33 @@
             <h2 class="cta-text" id="signup">Join The Watch Drop</h2>
             
             <!-- ConvertKit Mailing List Form -->
-            <div class="email-form-container">
-                <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
-                <form action="https://app.kit.com/forms/8038660/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="8038660" data-uid="519e06b3ac" data-format="inline" data-version="5">
-                    <input class="formkit-input" name="email_address" aria-label="Enter your email" placeholder="Enter your email" required="" type="email">
-                    <button class="formkit-submit">Subscribe</button>
-                </form>
-            </div>
+    <!-- Kit Form Embed -->
+    <script async data-uid="519e06b3ac" src="https://the-watch-drop.kit.com/519e06b3ac/index.js"></script>
+    
+    <!-- JavaScript for smooth scrolling -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth scrolling to all links
+            const links = document.querySelectorAll('a[href^="#"]');
+            
+            for (const link of links) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        // Smooth scroll to element
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80, // Offset for fixed header
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            }
+        });
+    </script>
         </div>
     </section>
     
@@ -615,42 +567,5 @@
             <p>Coming Soon | Trusted. Curated. Transparent.</p>
         </div>
     </footer>
-    
-    <!-- Pop-up Thank You Message -->
-    <div id="thank-you-popup" class="thank-you-popup">
-        <div class="thank-you-content">
-            <div class="thank-you-icon">✓</div>
-            <h3>Thank You!</h3>
-            <p>You've been added to the waitlist.</p>
-        </div>
-    </div>
-    
-    <!-- Kit Form Embed -->
-    <script async data-uid="519e06b3ac" src="https://the-watch-drop.kit.com/519e06b3ac/index.js"></script>
-    
-    <!-- JavaScript for smooth scrolling -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add smooth scrolling to all links
-            const links = document.querySelectorAll('a[href^="#"]');
-            
-            for (const link of links) {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        // Smooth scroll to element
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80, // Offset for fixed header
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            }
-        });
-    </script>
 </body>
 </html>
